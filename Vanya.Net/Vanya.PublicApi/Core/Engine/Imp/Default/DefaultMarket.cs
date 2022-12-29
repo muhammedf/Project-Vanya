@@ -95,7 +95,7 @@ namespace WebApplication1.Core.Engine.Imp.Default
             _deals.Add(deal);
 
             RemoveOrder(bid, bid.Price);
-            RemoveOrder(bid, bid.Price);
+            RemoveOrder(ask, ask.Price);
 
             if(bid.Quantity > deal.Quantity)
             {
