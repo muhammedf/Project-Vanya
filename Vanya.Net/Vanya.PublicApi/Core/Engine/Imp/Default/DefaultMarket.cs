@@ -20,6 +20,9 @@ namespace WebApplication1.Core.Engine.Imp.Default
 
         public Instrument Instrument => _instrument;
 
+        private int _orderId;
+        private long _dealId;
+
         public DefaultMarket(Instrument instrument)
         {
             _asks = new SortedList<decimal, SortedSet<Order>>();
@@ -31,6 +34,9 @@ namespace WebApplication1.Core.Engine.Imp.Default
 
         public void AddOrder(Order order)
         {
+            order.Id = Interlocked.Increment(ref _orderId);
+            order.CreateTime = DateTime.Now;
+
             AddOrderInternal(order);
 
             OrderAdded?.Invoke(this, order);
@@ -80,6 +86,7 @@ namespace WebApplication1.Core.Engine.Imp.Default
             var deal = new Deal()
             {
                 Price = bid.Price,
+                Id = Interlocked.Increment(ref _dealId),
                 BidOrder = bid,
                 AskOrder = ask,
                 Quantity = ask.Quantity <= bid.Quantity ? ask.Quantity : bid.Quantity
