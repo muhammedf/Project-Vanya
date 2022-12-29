@@ -74,7 +74,7 @@ namespace WebApplication1.Core.Engine.Imp.Default
                     continue;
                 var bid = _bids.First().Value.First();
                 var ask = _asks.First().Value.First();
-                if (bid.Price == ask.Price)
+                if (bid.Price >= ask.Price)
                 {
                     CreateDeal(bid, ask);
                     dealt = true;
