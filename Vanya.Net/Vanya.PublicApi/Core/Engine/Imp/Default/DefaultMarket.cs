@@ -87,10 +87,10 @@ namespace WebApplication1.Core.Engine.Imp.Default
         {
             var deal = new Deal()
             {
-                Price = bid.Price,
                 Id = Interlocked.Increment(ref _dealId),
                 BidOrder = bid,
                 AskOrder = ask,
+                Price = ask.CreateTime <= bid.CreateTime ? ask.Price : bid.Price,
                 Quantity = ask.Quantity <= bid.Quantity ? ask.Quantity : bid.Quantity
             };
 
