@@ -6,6 +6,8 @@ namespace WebApplication1.Core.Engine.Imp.Default
 {
     public class DefaultMarket : IMarket
     {
+        static IComparer<decimal> descendingDecimalComparer = Comparer<decimal>.Create((x, y) => -Comparer<decimal>.Default.Compare(x, y));
+        static IComparer<Order> byDateComparer = Comparer<Order>.Create((x, y) => Comparer<DateTime>.Default.Compare(x.CreateTime, y.CreateTime));
 
         private readonly SortedList<decimal, SortedSet<Order>> _asks;
         private readonly SortedList<decimal, SortedSet<Order>> _bids;
@@ -26,7 +28,7 @@ namespace WebApplication1.Core.Engine.Imp.Default
         public DefaultMarket(Instrument instrument)
         {
             _asks = new SortedList<decimal, SortedSet<Order>>();
-            _bids = new SortedList<decimal, SortedSet<Order>>();
+            _bids = new SortedList<decimal, SortedSet<Order>>(descendingDecimalComparer);
             _deals = new List<Deal>();
             _orders = new ConcurrentDictionary<long, Order>();
             _instrument = instrument;
@@ -58,7 +60,7 @@ namespace WebApplication1.Core.Engine.Imp.Default
             }
             else
             {
-                list.Add(order.Price, new SortedSet<Order>(OrderPriorityComparer.Instance) { order });
+                list.Add(order.Price, new SortedSet<Order>(byDateComparer) { order });
             }
         }
 
