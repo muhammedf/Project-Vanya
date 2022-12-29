@@ -5,7 +5,7 @@
         public long Id { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
-        public Order BuyOrder { get; set; }
-        public Order SellOrder { get; set; }
+        public Order BidOrder { get; set; }
+        public Order AskOrder { get; set; }
     }
 }

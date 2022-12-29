@@ -79,9 +79,9 @@ namespace WebApplication1.Core.Engine.Imp.Default
         {
             var deal = new Deal()
             {
-                BuyOrder = bid,
-                SellOrder = ask,
                 Price = bid.Price,
+                BidOrder = bid,
+                AskOrder = ask,
                 Quantity = ask.Quantity <= bid.Quantity ? ask.Quantity : bid.Quantity
             };
 
