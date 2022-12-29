@@ -17,7 +17,7 @@ namespace WebApplication1.Core.Engine.Imp.Default
 
         public event EventHandler<Order>? OrderAdded;
         public event EventHandler<Order>? OrderCancelled;
-        public event EventHandler<Order>? OrderEdited;
+        public event EventHandler<(Order old, Order @new)>? OrderEdited;
         public event EventHandler<Deal>? DealCreated;
 
         public Instrument Instrument => _instrument;
@@ -158,7 +158,7 @@ namespace WebApplication1.Core.Engine.Imp.Default
             RemoveOrder(order, oldOrder.Price);
             AddOrderInternal(order);
 
-            OrderEdited?.Invoke(this, order);
+            OrderEdited?.Invoke(this, (oldOrder, order));
 
             Execute();
         }

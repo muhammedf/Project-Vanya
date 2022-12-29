@@ -11,7 +11,7 @@ namespace WebApplication1.Core.Engine
 
         event EventHandler<Order> OrderAdded;
         event EventHandler<Order> OrderCancelled;
-        event EventHandler<Order> OrderEdited;
+        event EventHandler<(Order old, Order @new)> OrderEdited;
         event EventHandler<Deal> DealCreated;
     }
 }
