@@ -6,8 +6,8 @@ namespace WebApplication1.Core.Engine.Imp.Default
 {
     public class DefaultMarket : IMarket
     {
-        static IComparer<decimal> descendingDecimalComparer = Comparer<decimal>.Create((x, y) => -Comparer<decimal>.Default.Compare(x, y));
-        static IComparer<Order> byDateComparer = Comparer<Order>.Create((x, y) => Comparer<DateTime>.Default.Compare(x.CreateTime, y.CreateTime));
+        static readonly IComparer<decimal> descendingDecimalComparer = Comparer<decimal>.Create((x, y) => -Comparer<decimal>.Default.Compare(x, y));
+        static readonly IComparer<Order> byDateComparer = Comparer<Order>.Create((x, y) => Comparer<DateTime>.Default.Compare(x.CreateTime, y.CreateTime));
 
         private readonly SortedList<decimal, SortedSet<Order>> _asks;
         private readonly SortedList<decimal, SortedSet<Order>> _bids;
