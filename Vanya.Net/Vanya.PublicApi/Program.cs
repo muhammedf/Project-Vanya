@@ -1,12 +1,12 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using WebApplication1;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
-{ 
+{
     //Register modules and services
+    builder.RegisterModule<Vanya.Application.Module>();
 });
 
 // Add services to the container.
