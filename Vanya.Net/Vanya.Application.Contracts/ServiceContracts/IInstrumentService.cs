@@ -1,6 +1,6 @@
 ﻿using Vanya.Core.Model;
 
-namespace Vanya.PublicApi.ServiceContracts;
+namespace Vanya.Application.Contracts.ServiceContracts;
 
 public interface IInstrumentService
 {

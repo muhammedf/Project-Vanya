@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using Vanya.Application.Contracts.ServiceContracts;
 using Vanya.Application.Services;
-using Vanya.PublicApi.ServiceContracts;
 
 namespace Vanya.Application;
 public class Module : Autofac.Module

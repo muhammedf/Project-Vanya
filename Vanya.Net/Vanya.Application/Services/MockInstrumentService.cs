@@ -1,5 +1,5 @@
-﻿using Vanya.Core.Model;
-using Vanya.PublicApi.ServiceContracts;
+﻿using Vanya.Application.Contracts.ServiceContracts;
+using Vanya.Core.Model;
 
 namespace Vanya.Application.Services;
 
