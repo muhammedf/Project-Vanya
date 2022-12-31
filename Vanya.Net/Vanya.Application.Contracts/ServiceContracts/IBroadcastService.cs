@@ -8,5 +8,6 @@ namespace Vanya.Application.Contracts.ServiceContracts;
 
 public interface IBroadcastService
 {
-    Task SendToGroup(string channel, string group, object data);
+    Task SendToChannel(string channel, string method, object data);
+    Task SendToGroup(string channel, string group, string method, object data);
 }

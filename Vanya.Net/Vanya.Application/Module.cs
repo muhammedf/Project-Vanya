@@ -14,5 +14,6 @@ public class Module : Autofac.Module
     {
         builder.RegisterType<MockInstrumentService>().As<IInstrumentService>();
         builder.RegisterType<DefaultTradingService>().As<ITradingService>();
+        builder.RegisterType<DefaultBroadcastService>().As<IBroadcastService>();
     }
 }

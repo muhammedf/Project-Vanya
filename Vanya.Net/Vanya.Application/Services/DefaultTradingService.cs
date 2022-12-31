@@ -52,7 +52,7 @@ internal class DefaultTradingService : ITradingService
             data.NewTrackingHash = newHash;
         }
 
-        await broadcast.SendToGroup(Constants.BOARD_CHANNEL, instrumentName, data);
+        await broadcast.SendToGroup(Constants.BOARD_CHANNEL, instrumentName, data.EventType.ToString(), data);
     }
 
     private async void Market_OrderEdited(object? sender, (Order old, Order @new) e)
