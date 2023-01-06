@@ -1,0 +1,84 @@
+:root{
+  --sellcolor: rgb(255, 54, 54);
+  --buycolor: rgb(16, 187, 0);
+}
+
+.sell.anime{
+  animation: sellburn 1s linear;
+}
+
+.buy.anime{
+  animation: buyburn 1s linear;
+}
+
+@keyframes sellburn {
+  from{
+    background: yellow;
+  }
+  to{
+    background: var(--sellcolor);
+  }
+}
+
+@keyframes buyburn {
+  from{
+    background: yellow;
+  }
+  to{
+    background: var(--buycolor);
+  }
+}
+
+
+.market{
+  display: table;
+  /* border-spacing: 15px; */
+}
+
+.depth{
+  display: table-row;
+}
+
+.buy{
+  display: table-cell;
+  text-align: center;
+  background-color: var(--buycolor);
+  border-style: dashed;
+  border-width: 1px;
+}
+
+.sell{
+  display: table-cell;
+  text-align: center;
+  background-color: var(--sellcolor);
+  border-style: dashed;
+  border-width: 1px;
+}
+
+.buy .inside .price{
+  text-align: left;
+}
+.buy .inside .quantity{
+  text-align: right;
+}
+.sell .inside .price{
+  text-align: right;
+}
+.sell .inside .quantity{
+  text-align: left;
+}
+
+.inside{
+  display: table;
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.price{
+  display: table-cell;
+}
+
+.quantity{
+  display: table-cell;
+}
